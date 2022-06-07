@@ -1,0 +1,128 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[russian]{babel}
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\documentclass{article}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Лекция по алгему}
+\author{Анонимы ПМИ-1х}
+\date{30.05.22}
+\graphicspath{ {./images/} }
+\begin{document}
+
+
+\maketitle
+\large
+
+\section{Функции матрицы}
+\textit{Определение функции от матрицы:} \newline
+Пусть дана квадратичная матрица \(A\) порядка \(n\) и функция \(f(x)\) скалярного аргумента \(\lambda\). Распространим это \(\lambda\) на матричные значения аргумента.\newline
+Задача заключается в том, чтобы найти по данным \(f(A)\)\newline
+\(A_{n*n} f(\lambda) \mapsto f(A) - ?\)\newline\newline
+\(f(\lambda) = \alpha_{0} \lambda^{k} + \alpha_{1} \lambda^{k-1} + ... + \alpha_{k}\newline\)
+\(f(\lambda) = \alpha_{0} A^{k} + \alpha_{1} A^{k-1} + ... + \alpha_{k}I_{n} <= 0>\)\newline\newline
+Определим \(f(A)\) в общем случае. \newline
+Многочлен \(f(A)\) - называется \textit{аннулирующим}, если \(f(A) = 0\) (пример - характеристический многочлен)\newline
+\textit{Минимальный} многочлен \(\psi (\lambda)\)  - аннулирующий и имеющий минимальную степень. \newline
+\[\psi (\lambda) = E_{n} (\lambda) = \prod_{i = 1}^{s} (\lambda - \lambda_{i})^{m_{i}} \text{ }\textbf{(1)}\]\(i = \overline{1, s}\) - все различные собственные значения матрицы A\newline
+\[\textbf{\(m = deg \psi (\lambda) = \sum_{i=1}^{s} m_{i}\)\newline}\]
+Определение:\newline
+\[\left\{ f(\lambda{i}), f^{'}(\lambda{i}),..., f^{(m_{i}-1)}(\lambda{i}), i = \overline{1,s}\right\} = f(\Lambda_{A}) \text{ } \textbf{(2)}\]
+Будем называть значениями функции \(f(\lambda)\) на спектре матрицы \(A\) и совокупность этих значений будем обозначать через \(f\).\newline
+• Если для \(f(\lambda)\) существует (и имеет смысл) значения \textbf{(2)}, то говорят, что функция \(f(\lambda)\) определена на спектре. \newline
+• Если \(f(\lambda)\) определена на спектре матрицы \(A\), то \(f(A) = g(A)\), где \(g(\lambda)\) - любой многочлен, принимающий значения на спектре матрицы \(A\), что и \(f(\lambda)\). \newline
+\(g(\Lambda_{A}) = f(\Lambda_{A}) \mapsto f(A) = g(A)\)\newline
+
+Среди всех многочленов с комплексными коэффициентами, принимающих одни те же значения на спектре, что и \(f(\lambda)\) имеется единственный многочлен \(r(\lambda)\), имеющий степень меньшую m. Этот многочлен однозначно определяется своими интерполяционными условиями. \newline
+
+Интерполяционные условия
+\[r(\lambda_{i}) = f(\lambda_{i}), r^{'}(\lambda_{i}) = f^{'}(\lambda_{i}) ,...,  r^{(m_{i}-1)}(\lambda_{i}) = f^{(m_{i}-1)}(\lambda_{i}), i = \overline{1, s}\text{ } \textbf{(3)}\]
+Определение: \newline
+  Многочлен \(  r(\lambda)\) удовлетворяющий условию \textbf{(3)} называется интерполяционным многочленом Лагранжа  Сильвестра.\newline\newline
+Определение:\newline
+    Пусть \(f(\lambda)\) - функция, определенная на спектре матрицы \(A\), а \(r(\lambda)\) соответствующий интерполяционный многочлен Лагранжа Сильвестра. \newline
+    Тогда  \(f(A) = g(A)\) \newline
+
+Замечание:\newline
+    Если минимальный многочлен не имеет кратных корней (\(m_{i} = 1\))\newline
+    
+\[\psi(\lambda) = \prod_{i=1}^{m} (\lambda - \lambda_{i}) \text{ } \textbf{(1°)}\]
+\newline
+    Для того, чтобы \(f(A)\) имело смысл достаточно, чтобы функция \(f(\Lambda_{A})\) была определена во всех точках. \newline
+    
+\[f(\Lambda_{A})  = \left\{ f(\lambda_{i}), i = \overline{1,s}\right\} \textbf{(2°)}\]
+
+\section{Примеры:}
+\textbf{Пример 1:}\newline
+    
+    Пусть \(J_{n} (0) = \begin{pmatrix}
+    0 & 1 & 0 & ... & 0 \\
+    0 & 0 & 1 & ... & 0 \\
+    0 & 0 & 0 & ... & 1 \\
+    0 & 0 & 0 & ... & 0 \\
+    \end{pmatrix}\)
+    \newline
+    Подставим атрибуты:\newline
+    1) \(\psi (\lambda) = \lambda^{n}\)\newline
+    т.к:    
+    \(\left\{\begin{matrix}
+    E_{1} (\lambda) = 1\\
+    E_{2} (\lambda) = 1 \\
+    ... \\
+    E_{n-1} (\lambda) = 1 \\
+    E_{n} (\lambda) = \lambda ^{n} \\
+    \end{matrix}\right.
+    \)
+    \newline\newline
+    2) \(f(\Lambda_{J_{n} (0)}) = \left\{ f(0), f^{'}(0),...,f^{(n-1)}(0)\right\}\)\newline\newline
+    3) \(\left\{ r(0) = f(0), r^{'}(0) = f^{'}(0),..., r^{(n-1)}(0) = f^{(n-1)}(0) \right\}\)\newline\newline
+  \(  r(\lambda) = f(0) + \frac{f^{'}(0)}{1!}\lambda + \frac{f^{''}(0)}{2!}\lambda^{2} + ... + \frac{f^{(n-1)}(0)}{(n-1)!}\lambda^{n-1}\)\newline
+    
+   \( f(J_{n}(0)) = f(0)I_{n} + \frac{f^{'}(0)}{1!}J_{n}(0) + \frac{f^{''}(0)}{2!}J_{n}^{2}(0) + \frac{f^{(n-1)}(0)}{(n-1)!}J_{n}^{n-1}(0)\)\newline
+    
+    где\( J_{n}^{n-1}(0) = \begin{pmatrix}
+0 & 0 & 0 & ... & 1 \\
+0 & 0 & 0 & ... & 0 \\
+0 & 0 & 0 & ... & 0 \\
+\end{pmatrix}\)
+\newline\newline\newline
+Итог:
+\(\begin{pmatrix}
+f(0) & \frac{f^{'}(0)}{1!} & ... & \frac{f^{(n-1)} (0)}{(n-1)!} \\
+0 & f(0) & ... &  \frac{f^{'}(0)}{1!}  \\
+0 & 0 & ... & f(0)  \\
+\end{pmatrix}\)
+\newline\newline\newline\newline\newline
+\textbf{Пример 2:}\newline
+\(J_{n} (0) = \begin{pmatrix}
+    \lambda_{0} & 1 & 0 & ... & 0 \\
+    0 & \lambda_{0} & 1 & ... & 0 \\
+    0 & 0 & 0 & ... & 1 \\
+    0 & 0 & 0 & ... & \lambda_{0} \\
+    \end{pmatrix}\)
+
+\newline
+
+  \(  \psi (\lambda) = (\lambda - \lambda_{0})^{n}\)\newline
+  
+  \(  r({\lambda}) = f(\lambda_{0}) + \frac{f^{'}(\lambda_{0})}{1!}(\lambda - \lambda_{0}) +\frac{f^{''}(\lambda_{0})}{2!}(\lambda - \lambda_{0})^{2} + ... + \frac{f^{(n-1)}(\lambda_{0})}{(n-1)!}(\lambda - \lambda_{0})^{n-1}\)\newline
+    
+   \( f(J_{n}(\lambda_{0})) = f(\lambda_{0})I + \frac{f^{i}(\lambda_{0})}{1!} \frac{J_{n}\lambda_{0} - \lambda_{0}I_{n}}{J_n(0)} + ... + \frac{f^{(n-1)}(\lambda_{0})}{(n-1)!} J_{n}^{n-1}(0)... \)\newline
+    
+    Отметим 3 свойства функции-матрицы \newline
+    \textit{Продолжение следует...}\newline
+
+
+\end{document}

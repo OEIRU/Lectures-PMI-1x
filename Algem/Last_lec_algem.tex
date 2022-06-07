@@ -1,0 +1,139 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[russian]{babel}
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=1cm,bottom=1.1cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\documentclass{article}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Лекция по алгему}
+\author{Анонимы ПМИ-1х}
+\date{11.05.22}
+\begin{document}
+
+
+\maketitle
+\Large
+
+\section{Свойства}
+\textbf{Свойство 1.} \newline
+Если \(\lambda_{1}, \lambda_{2}, ... ,  \lambda_{n}\) - это собственные числа матрицы \(n\)-го порядка \(A\),\newline то \(f(\lambda_{1}), f(\lambda_{2}), ... ,  f(\lambda_{n})\) -  собственные значения от \(f(A)\) \newline
+Без доказательства\newline
+\newline
+\textbf{Свойство 2.}\newline
+Если \(A\) и \(B\) подобные, причем \(B = P^{-1}  A  P\), то матрицы \(f(A)\) и \(f(B)\) подобные, и матрица \(B\) преобразует \(f(A)\) в \(f(B)\).\newline
+\(B = P^{-1}AP = \mapsto f(B) = P^{-1} f(A) P\)\newline
+\(J = P^{-1}AP \mapsto A = P J P^{-1} \mapsto f(A) = Pf(J)P^{-1}\)\newline
+\(\text{.....рассмотреть доказательство в Гандмахере (теории матриц)}\)\newline
+\newline
+\textbf{Свойство 3}\newline
+Если \(A\) - квазидиагональная матрица\newline\newline
+A = 
+\begin{pmatrix}
+ A_{1} & 0 & ... & 0 \\
+ 0 & A_{2} & ... & 0 \\
+ ... & ... & ... & ... \\
+ 0&  0& ... & A_{n} \\
+\end{pmatrix} \mapsto f(A) = \begin{pmatrix}
+ f(A_{1}) & 0 & ... & 0 \\
+ 0 & f(A_{2}) & ... & 0 \\
+ ... & ... & ... & ... \\
+ 0&  0& ... & f(A_{n}) \\
+\end{pmatrix}\newline\newline
+\(\text{......доказательство там же}\)\newline
+\newline
+
+\textbf{Пример 3: Оператор простой структуры}\newline\newline
+A = P \begin{pmatrix}
+ \lambda_{1} & 0 & ... & 0 \\
+ 0 & \lambda_{2} & ... & 0 \\
+ ... & ... & ... & ... \\
+ 0&  0& ... & \lambda_{n} \\
+\end{pmatrix} P^{-1}
+\newline \newline \newline
+f(A) = P \begin{pmatrix}
+ f(\lambda_{1}) & 0 & ... & 0 \\
+ 0 & f(\lambda_{2}) & ... & 0 \\
+ ... & ... & ... & ... \\
+ 0&  0& ... & f(\lambda_{n}) \\
+\end{pmatrix} P^{-1}
+\newline
+
+\textbf{Пример 4:} Более общая картина \newline
+\(J = diag(J_{\nu_{1}}(\lambda_{1}), ... , J_{\nu_{u}}(\lambda_{u}))\)\newline
+По свойству (3) получаем:\newline
+\(f(J) = diag(f(J_{\nu_{1}}(\lambda_{1})), ... , f(J_{\nu_{u}}(\lambda_{u})))\)\newline
+Ссылаясь на пример (2) доказываем. \newline
+\newline
+\section{Интерполяционный многочлен Лагранжа Сильвестра}\newline
+\(r(\lambda) \mapsto f(A) = r (A)\)\newline\newline
+\(\psi(\lambda) = E_{n} (\lambda) = \prod_{i = 1}^{S} (\lambda - \lambda_{i})^{m_{i}}\)\newline\newline
+\(\sum_{i = 1}^{S} m_{i} - m = deg\textbf{ }\psi(\lambda)\)\newline\newline
+Представим функцию \(\frac{r(\lambda)}{\psi(\lambda)}\), являющейся правильной дробью, в виде суммы простых дробей\newline
+\(\sum_{i = 1}^{S} \left [ \frac{\alpha_{i1}}{(\lambda - \lambda_{i})^{m_{i}}} + \frac{\alpha_{i2}}{(\lambda - \lambda_{i})^{m_{i}-1}} + 
+\frac{\alpha_{i, m_{i}}}{(\lambda - \lambda_{i})}\right ]\textbf{(4)}\)\newline
+где \(\alpha_{i,m_{i}} = \overline{1, S}\)\newline
+
+Для определения числителя простых дробей умножим обе части равенства (4) на 
+\((\lambda - \lambda_{k})^{m_{k}}\) и обозначим через \newline
+
+\(\psi^{2}(\alpha) = \frac{\psi(\lambda)}{(\lambda - \lambda_{k})^{m_{k}}} \mapsto 
+\alpha_{k1} + \alpha_{k2}(\lambda - \lambda_{k}) + ... + \alpha_{km_{k}}(\lambda - \lambda_{k})^{m_{k}-1} + \rho (\lambda) (\lambda-\lambda_{k})^{m_{k}}\newline\textbf{(5)}\)\newline
+\newline
+\(\rho(\alpha)\) - рациональная функция, которая не обращается в бесконечность при \(\lambda = \lambda_{k}\)\newline
+
+Найдем коэффициенты \(\alpha_{k1}, \alpha_{k2}, ..., \alpha_{ki}\)\newline
+\newline
+\(\alpha_{k1} = \frac{r(\lambda)}{\psi_{k}(\alpha)}_{\left ( \lambda = \lambda_{k} \right )}\)
+\(\alpha_{k2} = (\frac{r(\lambda)}{\psi_{2}(\alpha)})^{'}_{\left ( \lambda = \lambda_{k} \right )}\) \textbf{(6)}\newline
+\newline
+Формулы (6) показывают, что числители в правой части равенства (4) выражаются через значения многочлена \(r(\lambda)\) на спектре матрицы \(A\)\newline
+\newline
+А эти значения нам известны. Они равны соответствующим значениям функции \(f(\lambda)\) и её производных, поэтому можно обобщить \newline
+\newline
+\(\alpha_{ij} = \frac{1}{(j-1)!} \left [ \frac{f(\lambda)}{\psi^{'}(\lambda)} \right]^{(j-1)}_{\lambda = \lambda_{i}}  \)\textbf{(7)}\newline
+\newline
+После того, как все \(\lambda\) найдены, мы определяем \(r(\lambda)\) по следующей формуле, которая получается из (4) умножением на \(\psi(\lambda)\)\newline
+\newline
+\(r(\lambda) = \sum _{i = 1} ^{S} \left [ \alpha_{i1} + \alpha_{i2}(\lambda - \lambda_{i}) + ... + \alpha_{i, m_{i}}(\lambda - \lambda_{i})^{m_{i}-1}\right] \psi^{'}(\lambda) \textbf{(8)}\newline\)
+\newline
+\textbf{Замечание:}\newline
+Выражение в квадратных скобках, стоящее в качестве \(\psi(\lambda) = \sum_{i = 1}^{n}\) разложения Тейлора по степеням \((\lambda - \lambda_{i})\) функции \(\frac{r(\lambda)}{\psi(\lambda)} (?)\)\newline
+
+\textbf{УПРАЖНЕНИЕ:}\newline
+Получить интерполяционный многочлен для\newline
+\(\psi(\lambda) = (\lambda - \lambda_{1})^2 (\lambda - \lambda_{2})^3\)\newline
+\newline
+\section{Основная формула}\newline
+Вернемся к формуле (8) для \(r(\lambda)\), подставляя в нее выражение (7) для коэффициентов \(\alpha\) (4), объединяя члены, которые содержат одно и то же значение \(f(\lambda)\) и какой-либо ее производной мы представим \(r(\lambda)\) в виде:\newline
+\[r(\lambda) =  
+\sum _{i = 1} ^{S} \left [ f(\lambda_{i}) \varphi_{i1}(\lambda) + f^{'}(\lambda_{i}) \varphi_{i2}(\lambda) + ... + f^{(m_{i} - 1)}(\lambda_{i}) \varphi_{i,m_{i}}(\lambda)\right] \textbf{(9)}\]
+\newline
+
+\(\lambda_{i1}\) - полином \(\lambda < m\)\newline
+\newline
+Эти полиномы определяются заданием \(\psi(\lambda)\) и не зависят от выбора \(f(\lambda)\)\newline
+\newline
+Число таких полиномов равно числу значений \(f(\lambda)\) на спектре матрицы \(A\), т.е равно \(m\).\newline
+\newline
+Из формулы (9) сразу же следует основная формула:\newline
+\[f(A) = \sum _{i = 1} ^{S} \left [ f(\lambda_{i}) Z_{i1} + f^{'}(\lambda_{i}) Z_{i2} + ... + f^{m_{i} - 1}(\lambda_{i}) Z_{i, m_{i}}(\lambda)\right] \textbf{(10)}\]
+\newline
+\(Z_{ij} = \varphi _{ij}\) - компоненты матрицы \(А\)\newline
+\(f(\lambda)\) - линейно независимая система\newline
+и еще одно задание: разложить интерполяционный многочлен из \newlineУПРАЖНЕНИЯ по этой формуле}\newline
+\textit{The final lection.}
+
+
+\end{document}
